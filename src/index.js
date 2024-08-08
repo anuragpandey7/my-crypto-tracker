@@ -5,10 +5,10 @@ import App from "./App";
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 import NavBar from "./components/NavBar";
 import Pricing from "./components/pages/Pricing";
-import Resource from "./components/pages/Resource";
 import Trending from "./components/pages/Trending";
 import Footer from "./components/Footer";
 import Home from "./components/pages/Home";
+import Top10 from "./components/pages/Top10";
 
 const AppLayout = () => {
   return (
@@ -24,6 +24,7 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <AppLayout />,
+    errorElement: <div>ERROR FOUND</div>,
     children: [
       {
         path: "/home",
@@ -34,8 +35,8 @@ const router = createBrowserRouter([
         element: <Pricing />,
       },
       {
-        path: "/resource",
-        element: <Resource />,
+        path: "/top10",
+        element: <Top10 />,
       },
       {
         path: "/trending",

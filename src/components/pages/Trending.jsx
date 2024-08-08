@@ -11,7 +11,7 @@ const Trending = () => {
     GetCryptoData().then(res=>setData(res));
   }, []);
 
-  if(data == []) return <h1>loading...</h1>
+  
   return (
     <div>
       <Cards cryptoData={data}/>

@@ -19,8 +19,8 @@ const NavBar = () => {
         <Link to={"/trending"}>
           <p className="hover:text-blue-800">Trending</p>
         </Link>
-        <Link to={"/resource"}>
-          <p className="hover:text-blue-800">Resources</p>
+        <Link to={"/top10"}>
+          <p className="hover:text-blue-800">Top10</p>
         </Link>
       </div>
 

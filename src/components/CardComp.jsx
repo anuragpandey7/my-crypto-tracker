@@ -21,7 +21,7 @@ const CardComp = ({item}) => {
       </div>
       <div className="flex items-center gap-3 font-bold border rounded-3xl  p-2">
         <h3>&#x24;{item.price_change_24h}</h3>
-        {item.ath_change_percentage > 0 ? (
+        {item.price_change_24h > 0 ? (
           <IoIosTrendingUp className="text-green-700 text-3xl " />
         ) : (
           <IoIosTrendingDown className="text-red-700 text-2xl" />
