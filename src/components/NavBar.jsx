@@ -13,8 +13,8 @@ const NavBar = () => {
         <Link to={"/home"}>
           <p className="hover:text-blue-800">Home</p>
         </Link>
-        <Link to={"/pricing"}>
-          <p className="hover:text-blue-800">Pricing</p>
+        <Link to={"/watchlist"}>
+          <p className="hover:text-blue-800">Watchlist</p>
         </Link>
         <Link to={"/trending"}>
           <p className="hover:text-blue-800">Trending</p>

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import GetTrendingData from "../../api/GetTrendingData";
-import CardComp from "../CardComp"
+import Cards from "../Cards";
+import Loading from "./Loading";
 
 const Top10 = () => {
   const [data, setData] = useState([]);
@@ -9,9 +10,15 @@ const Top10 = () => {
     GetTrendingData().then((res) => setData(res.coins));
   }, []);
 
-  console.log(data)
+  
 
-  return <div>{data.map(coin => <CardComp data = {coin} />)}</div>;
+  return data.length === 0 ? (
+    <Loading/> 
+  ) : (
+    <div>
+      <Cards cryptoData={data} checker={"top10"} />
+    </div>
+  );
 };
 
 export default Top10;

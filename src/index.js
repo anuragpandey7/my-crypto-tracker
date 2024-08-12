@@ -9,6 +9,7 @@ import Trending from "./components/pages/Trending";
 import Footer from "./components/Footer";
 import Home from "./components/pages/Home";
 import Top10 from "./components/pages/Top10";
+import CoinById from "./components/pages/CoinById"
 
 const AppLayout = () => {
   return (
@@ -31,7 +32,7 @@ const router = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: "/pricing",
+        path: "/pricing/",
         element: <Pricing />,
       },
       {
@@ -42,6 +43,11 @@ const router = createBrowserRouter([
         path: "/trending",
         element: <Trending />,
       },
+      {
+        path: "/coins/:id",
+        element: <CoinById />
+      }
+      
     ],
   },
 ]);
