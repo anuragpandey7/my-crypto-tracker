@@ -12,11 +12,11 @@ const CoinById = () => {
       .catch((err) => console.log(err));
   }, []);
 
-  console.log(data)
-  
+  // console.log(data);
+
   return (
     <div>
-      <CoinDetails apiData = {data}/>
+      <CoinDetails apiData={data} />
     </div>
   );
 };

@@ -2,11 +2,10 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { MdNavigateNext } from "react-icons/md";
 
-
 const CoinDetails = ({ apiData }) => {
   console.log(apiData);
 
-  if (apiData == []) return <h1>Loading</h1>;
+  if (apiData.length === 0) return <h1>Loading</h1>;
   return (
     <div className="flex flex-col w-2/5 border shadow-3xl font-bold text-[20px] m-9 p-5 gap-5">
       <div className="flex items-center gap-[30px] ">
@@ -26,7 +25,7 @@ const CoinDetails = ({ apiData }) => {
             />
           </li>
           <li>{apiData.symbol} Price</li>
-          <li>{apiData.market_data.market_cap_rank}</li>
+          <li>{}</li>
         </ul>
       </div>
       <div>Hey</div>

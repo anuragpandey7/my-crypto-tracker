@@ -1,11 +1,31 @@
 import React from "react";
-import { MdStarBorder } from "react-icons/md";
-import { MdStar } from "react-icons/md";
+import { MdOutlineStarRate } from "react-icons/md";
+import { MdOutlineStar } from "react-icons/md";
 import { IoIosTrendingDown } from "react-icons/io";
 import { IoIosTrendingUp } from "react-icons/io";
 import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { handleAddCoin ,handleRemoveCoin} from "../Store/watchListSlice";
 
 const CardComp = ({ item, checker }) => {
+  const watchlistData = useSelector((store) => store.watchList);
+
+  const isPresent = (element, array) =>
+    array.some((obj) => JSON.stringify(obj) === JSON.stringify(element));
+
+  const starRenderingLogic = isPresent(item, watchlistData);
+
+  console.log(starRenderingLogic);
+
+  const dispatch = useDispatch();
+
+  const addCoin = () => {
+    dispatch(handleAddCoin(item));
+  };
+
+  const removeCoin = () => {
+    dispatch(handleRemoveCoin(item));
+  };
   // console.log(item);
   return (
     <div className="flex flex-col border shadow-xl rounded-2xl  p-5 gap-4 bg-violet-50">
@@ -26,7 +46,12 @@ const CardComp = ({ item, checker }) => {
           </Link>
         </div>
         <div>
-          <MdStarBorder className="text-[26px]" />
+          {" "}
+          {!starRenderingLogic ? (
+            <MdOutlineStarRate onClick={addCoin} className="text-[30px]" />
+          ) : (
+            <MdOutlineStar onClick={removeCoin} className="text-[30px] text-yellow-400"  />
+          )}
         </div>
       </div>
       <div className="flex items-center gap-3 font-bold border rounded-3xl  p-2">
@@ -54,16 +79,7 @@ const CardComp = ({ item, checker }) => {
           <IoIosTrendingDown className="text-red-700 text-2xl" />
         )} */}
       </div>
-      {/* <div className="font-bold border rounded-3xl   p-2 ">
-        <h1>
-          {item.symbol.toLocaleUpperCase()} Price : &#x24;
-          {`${item.current_price}`}
-        </h1>
-      </div>
-      <div className="font-bold border rounded-3xl w-full p-2 mb-2 ">
-        <h3 className="mb-2">Market Cap : {item.market_cap}</h3>
-        <h3>Total Volume : {item.total_volume}</h3>
-      </div> */}
+  
       <div className="font-bold border rounded-3xl w-full p-2 mb-2">
         <div>
           Total Volume: $
