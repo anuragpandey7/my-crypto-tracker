@@ -73,11 +73,7 @@ const CardComp = ({ item, checker }) => {
           <IoIosTrendingDown className="text-red-700 text-3xl" />
         )}
 
-        {/* {item.price_change_24h > 0 ? (
-          <IoIosTrendingUp className="text-green-700 text-3xl " />
-        ) : (
-          <IoIosTrendingDown className="text-red-700 text-2xl" />
-        )} */}
+        
       </div>
   
       <div className="font-bold border rounded-3xl w-full p-2 mb-2">

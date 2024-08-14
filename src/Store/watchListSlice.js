@@ -1,4 +1,3 @@
-import { alertTitleClasses } from "@mui/material";
 import { createSlice } from "@reduxjs/toolkit";
 
 export const watchListSlice = createSlice({
