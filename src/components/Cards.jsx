@@ -9,6 +9,7 @@ const Cards = ({ cryptoData, checker }) => {
         <CardComp
           item={checker === "top10" ? element.item : element}
           key={checker === "top10" ? element.item.id : element.id}
+          checker={checker}
         />
       ))}
     </div>

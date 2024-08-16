@@ -17,7 +17,7 @@ const Trending = () => {
       .catch((err) => setLoading(false));
   }, []);
 
-  console.log(data);
+  // console.log(data);
 
   if(loading) return <Loading />
 

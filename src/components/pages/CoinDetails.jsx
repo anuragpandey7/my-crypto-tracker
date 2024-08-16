@@ -6,7 +6,7 @@ import { FaCaretUp } from "react-icons/fa";
 import { FaCaretDown } from "react-icons/fa";
 
 const CoinDetails = ({ apiData }) => {
-  console.log(apiData);
+  // console.log(apiData);
 
   if (apiData.length === 0) return <Loading>Loading</Loading>;
   return (

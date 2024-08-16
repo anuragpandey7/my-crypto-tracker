@@ -10,7 +10,7 @@ const Top10 = () => {
     GetTrendingData().then((res) => setData(res.coins));
   }, []);
 
-  
+ 
 
   return data.length === 0 ? (
     <Loading/> 

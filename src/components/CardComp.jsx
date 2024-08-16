@@ -5,9 +5,10 @@ import { IoIosTrendingDown } from "react-icons/io";
 import { IoIosTrendingUp } from "react-icons/io";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { handleAddCoin ,handleRemoveCoin} from "../Store/watchListSlice";
+import { handleAddCoin, handleRemoveCoin } from "../Store/watchListSlice";
 
 const CardComp = ({ item, checker }) => {
+  console.log(item)
   const watchlistData = useSelector((store) => store.watchList);
 
   const isPresent = (element, array) =>
@@ -15,7 +16,7 @@ const CardComp = ({ item, checker }) => {
 
   const starRenderingLogic = isPresent(item, watchlistData);
 
-  console.log(starRenderingLogic);
+  // console.log(starRenderingLogic);
 
   const dispatch = useDispatch();
 
@@ -27,17 +28,23 @@ const CardComp = ({ item, checker }) => {
     dispatch(handleRemoveCoin(item));
   };
   // console.log(item);
+
+ const imageSrc = checker === 'top10' ? item.thumb : item.image
+
+
+console.log(imageSrc);
+
   return (
-    <div className="flex flex-col border shadow-xl rounded-2xl  p-5 gap-4 bg-violet-50">
+    <div className="flex flex-col border shadow-xl rounded-2xl  p-5 gap-5 bg-violet-50">
       <div className="flex items-center justify-between">
         <div className="flex gap-3 S">
           <Link className="flex gap-2 items-center" to={`/coins/${item.id}`}>
             <abbr title="Click to know more ...">
               <img
                 className="w-9"
-                src={checker === "top10" ? item.thumb : item.image}
+                
+                src={imageSrc}
                 alt={"Crypto Symbol"}
-                loading="lazy"
               />
             </abbr>
 
@@ -50,7 +57,10 @@ const CardComp = ({ item, checker }) => {
           {!starRenderingLogic ? (
             <MdOutlineStarRate onClick={addCoin} className="text-[30px]" />
           ) : (
-            <MdOutlineStar onClick={removeCoin} className="text-[30px] text-yellow-400"  />
+            <MdOutlineStar
+              onClick={removeCoin}
+              className="text-[30px] text-yellow-400"
+            />
           )}
         </div>
       </div>
@@ -72,10 +82,8 @@ const CardComp = ({ item, checker }) => {
         ) : (
           <IoIosTrendingDown className="text-red-700 text-3xl" />
         )}
-
-        
       </div>
-  
+
       <div className="font-bold border rounded-3xl w-full p-2 mb-2">
         <div>
           Total Volume: $
