@@ -1,14 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { MdNavigateNext } from "react-icons/md";
-import Loading from "./Loading";
 import { FaCaretUp } from "react-icons/fa";
 import { FaCaretDown } from "react-icons/fa";
+import DummyUi from "../DummyUi";
 
 const CoinDetails = ({ apiData }) => {
   // console.log(apiData);
 
-  if (apiData.length === 0) return <Loading>Loading</Loading>;
+  if (apiData.length === 0) return <DummyUi />;
   return (
     <div className="flex flex-col w-2/5 border shadow-3xl font-bold text-[20px] m-9 p-5 gap-5 rounded-3xl bg-cyan-50">
       <div className="flex items-center gap-[30px] ">

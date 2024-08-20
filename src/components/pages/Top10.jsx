@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import GetTrendingData from "../../api/GetTrendingData";
 import Cards from "../Cards";
-import Loading from "./Loading";
+import DummyUi from "../DummyUi";
 
 const Top10 = () => {
   const [data, setData] = useState([]);
@@ -13,7 +13,7 @@ const Top10 = () => {
  
 
   return data.length === 0 ? (
-    <Loading/> 
+    <DummyUi />
   ) : (
     <div>
       <Cards cryptoData={data} checker={"top10"} />

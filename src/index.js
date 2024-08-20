@@ -1,7 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
-import App from "./App";
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 import NavBar from "./components/NavBar";
 import WatchList from "./components/pages/WatchList";
@@ -9,10 +8,12 @@ import Trending from "./components/pages/Trending";
 import Footer from "./components/Footer";
 import Home from "./components/pages/Home";
 import Top10 from "./components/pages/Top10";
-import CoinById from "./components/pages/CoinById"
+import CoinById from "./components/pages/CoinById";
 import { Provider } from "react-redux";
 import { cryptoStore } from "./Store/cryptoStore";
-
+import Error from "./components/Error";
+import SignUp from "./components/pages/SignUp";
+import Login from "./components/pages/Login";
 
 const AppLayout = () => {
   return (
@@ -30,15 +31,19 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <AppLayout />,
-    errorElement: <div>ERROR FOUND</div>,
+    errorElement: <Error />,
     children: [
+      {
+        path: "/",
+        element: <Home />,
+      },
       {
         path: "/home",
         element: <Home />,
       },
       {
         path: "/watchlist/",
-        element: <WatchList  />,
+        element: <WatchList />,
       },
       {
         path: "/top10",
@@ -51,6 +56,14 @@ const router = createBrowserRouter([
       {
         path: "/coins/:id",
         element: <CoinById />,
+      },
+      {
+        path: "/signup",
+        element: <SignUp />,
+      },
+      {
+        path: "/login",
+        element: <Login />,
       },
     ],
   },

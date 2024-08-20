@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import Cards from "../Cards";
 import GetCryptoData from "../../api/GetCryptoData";
-import Loading from "./Loading";
+import DummyUi from "../DummyUi";
+
 
 const Trending = () => {
   const [data, setData] = useState([]);
@@ -19,7 +20,7 @@ const Trending = () => {
 
   // console.log(data);
 
-  if(loading) return <Loading />
+  if(loading) return <DummyUi />
 
   return (
     <div>
